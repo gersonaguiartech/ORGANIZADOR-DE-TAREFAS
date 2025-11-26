@@ -1,3 +1,14 @@
+def checar_tarefas(self):
+    #CHECAGEM DAS TAREFAS JÁ LISTADAS
+        if not self.tarefas:
+            print('Não há tarefas listadas.')
+        else:
+            print('\n--- Lista de Tarefas ---')
+            for index, tarefa in enumerate(self.tarefas, start=1):
+                status = 'concluido' if tarefa['concluida'] else 'pendente'
+                print(f'{index} - ({status}): {tarefa['nome']} ')
+            print('-------------------------')
+
 def concluir_tarefa(self):
         #CONCLUIR TAREFA
         self.checar_tarefas()
