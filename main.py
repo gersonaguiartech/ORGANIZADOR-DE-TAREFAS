@@ -35,3 +35,18 @@ def editar_tarefas(self):
                 print('\n O numero da tarefa está inválide')
         except ValueError:
             print("entrada invalida. digite um numero")
+
+def remover_tarefas(self):
+        #REMOVENDO TAREFA UTILIZANDO O .POP
+    self.checar_tarefas()
+    if not self.checar_tarefas:
+        return
+    try:
+        num_tarefa = int (input(f'Digite o numero da tarefa que deseja REMOVER: ')) -1
+        if 0 <= num_tarefa <= len(self.tarefas):
+            remover_tarefa = self.tarefas.pop(num_tarefa)
+            print(f'Tarefa {remover_tarefa['nome']} foi removida com sucesso!!')
+        else:
+            print('\nNumero da tarefa incorreto.')
+    except ValueError:
+        print("entrada invalida. digite um numero")
