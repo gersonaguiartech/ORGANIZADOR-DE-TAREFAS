@@ -1,3 +1,21 @@
+def concluir_tarefa(self):
+        #CONCLUIR TAREFA
+        self.checar_tarefas()
+        if not self.tarefas:
+            return
+        try:
+            escolha = int(input('\nDigite o número da tarefa a concluir: ')) - 1
+            if 0 <= escolha < len (self.tarefas):
+                if self.tarefas[escolha]['concluida']:
+                    print(f'\nTarefa {self.tarefas[escolha]['nome']} já está concluida') 
+                else :
+                    self.tarefas[escolha]['concluida'] = True
+                    print(f'\nTarefa "{self.tarefas[escolha]['nome']}" marcada como concluída.')
+            else:
+                print('\n O numero da tarefa está inválido')
+        except ValueError:
+            print('\nErro: número inválido!')
+            
 def editar_tarefas(self):
     #FUNCAO EDITAR TAREFAS
         self.checar_tarefas()
