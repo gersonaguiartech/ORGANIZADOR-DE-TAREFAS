@@ -23,6 +23,7 @@ class GerenciadorTarefas:
             else:
                 self.tarefas.append({'nome': nova_tarefa,'concluida':False})
                 print(f'\nTarefa {nova_tarefa} adicionada.')
+
     def checar_tarefas(self):
         #CHECAGEM DAS TAREFAS JÁ LISTADAS
             if not self.tarefas:
@@ -68,7 +69,7 @@ class GerenciadorTarefas:
                     else:
                         print('\nEdição cancelada (entrada vazia).')
                 else:
-                    print('\n O numero da tarefa está inválide')
+                    print('\n O numero da tarefa está inválido')
             except ValueError:
                 print("entrada invalida. digite um numero")
 
