@@ -1,3 +1,18 @@
+#DICIONARIO PARA SER BUSCADO A OPÇÃO DE 1 A 6 NO MENU
+organizador_tarefas = {
+    1: 'Adicionar nova tarefa',
+    2: 'Listar tarefas existentes',
+    3: 'Marcar tarefa como concluída',
+    4: 'Editar tarefa',
+    5: 'Remover tarefa',
+    6: 'Sair do sistema'
+}
+#FUNÇÃO PARA EXIBIÇÃO DO MENU
+def exibir_menu():
+        print('\n --- Menu Organizador Tarefas ---')
+        for chave, valor in organizador_tarefas.items():
+            print(f'{chave} - {valor}')
+        print('----------------------------')
 
 class GerenciadorTarefas:
     def __init__(self):
@@ -87,3 +102,37 @@ class GerenciadorTarefas:
                 print('\nNumero da tarefa incorreto.')
         except ValueError:
             print("entrada invalida. digite um numero")
+            
+gerenciador = GerenciadorTarefas() 
+#FUNÇÃO INICIAL PARA CHECAGEM DO MENU DE 1 A 6
+def menu_principal():
+    while True:
+        exibir_menu()
+        
+        try:
+            opcao = int(input('Digite a opção desejada de 1 a 6 : '))
+        except ValueError:
+            print('Opção inválida, digite um numero.')
+            continue
+        #AQUI FOI UTILIZADO MATCH-CASE PARA SER MELHOR A LEITURA AO INVÊS DE IF-ELIF-ELSE.
+        match opcao:
+            case 1:
+                gerenciador.adicionar_tarefas()
+            case 2:
+                gerenciador.checar_tarefas()
+                input('\nPressione ENTER para voltar ao Menu.')
+                continue
+            case 3:
+                gerenciador.concluir_tarefa()
+            case 4:
+                gerenciador.editar_tarefas()
+            case 5:
+                gerenciador.remover_tarefas()
+            case 6:
+                print('Saindo do sistema, obrigado.')
+                break
+            case _:
+                print("\nOpção inválida. Tente novamente.")
+
+#ESSA OPÇÃO IRÁ SEMPRE CHAMAR O MENU QUANDO INICIAR SAIR DE UMA DAS OPÇÕES DO MENU         
+menu_principal()
